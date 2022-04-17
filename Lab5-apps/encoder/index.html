@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <title>Baseband Encoder</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="baseband-encoder">
+        <ul v-for="(bit, index) in bits">
+            <li>
+                <input 
+                    v-on:change="encode()" 
+                    maxlength="1" :placeholder="'B'+index" v-model="bit.value"
+                    v-bind:class="[validateBit(bit.value) ? 'valid-input' : 'invalid-input']" />
+            </li>
+        </ul>
+        <p>Bitstream data model: <code>{{bits}}</code></p>
+        <p>Baseband code representation MLT &nbsp &nbsp &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits1.join('')}}</code></p>
+        <p>Baseband code representation NRZL &nbsp &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits2.join('')}}</code></p>
+        <p>Baseband code representation NRZM &nbsp  &nbsp &nbsp : <code class="encoded">{{encodedBits3.join('')}}</code></p>
+        <p>Baseband code representation NRZS &nbsp  &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits4.join('')}}</code></p>
+        <p>Baseband code representation RZ &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp : <code class="encoded">{{encodedBits5.join('')}}</code></p>
+        <p>Baseband code representation BL &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp : <code class="encoded">{{encodedBits6.join('')}}</code></p>
+        <p>Baseband code representation BM &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits7.join('')}}</code></p>
+        <p>Baseband code representation BS &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp : <code class="encoded">{{encodedBits8.join('')}}</code></p>
+        <p>Baseband code representation BL-diff &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits9.join('')}}</code></p>
+        <p>Baseband code representation Delay  &nbsp &nbsp &nbsp &nbsp: <code class="encoded">{{encodedBits10.join('')}}</code></p>
+    </div>
+
+    <script type="text/javascript" src="libs/vue.js"></script>
+    <script type="text/javascript" src="libs/axios.js"></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
+    <script type="text/javascript" src="js/baseband-codes.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
